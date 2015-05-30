@@ -24,3 +24,9 @@ jennylia@udemy:~/blog $ rails generate migration create_users
  
 #Lookfing for a specific data entry == find_by:
  c = User.find_by email:'jeny@gmail.com'
+ 
+#models are not generated need to be created in the models
+
+#test
+1. create instance variable @
+2. rake test
