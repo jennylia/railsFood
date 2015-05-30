@@ -6,3 +6,21 @@ rake routes
 #Styling
 https://github.com/twbs/bootstrap-sass
 http://getbootstrap.com/2.3.2/components.html
+
+#Learn Ruby
+http://learnrubythehardway.org/book/
+
+#Heroku App
+https://myfooditem-jl.herokuapp.com/
+
+#Generate a migration
+jennylia@udemy:~/blog $ rails generate migration create_users
+      invoke  active_record
+      create    db/migrate/20150528235100_create_users.rb
+      
+
+#Undo generator == Destroy
+ rails destroy migration create_jennt
+ 
+#Lookfing for a specific data entry == find_by:
+ c = User.find_by email:'jeny@gmail.com'
