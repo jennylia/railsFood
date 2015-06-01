@@ -12,3 +12,8 @@ summary is 10 - 150 char
 description must be present
 description is 20 - 500 char
 chef_id must be present (we haven't created the association yet)
+
+
+Chef
+chef name 3 - 40 char
+email

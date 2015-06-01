@@ -30,3 +30,63 @@ jennylia@udemy:~/blog $ rails generate migration create_users
 #test
 1. create instance variable @
 2. rake test
+
+#Adding Relationship to data
+1. generate a migration starting with add_blahblah
+2. in the new migration, do add_column: table name, field, data type to it (i.e. :articles, :user_Id, :integer)
+3. in the 2 models, add
+  has_many :recipes (plural for the master)
+  belongs_to :chef (singular for the slave)
+4. run rake db:migrate
+5. chef.recipes.build( new instance) || create instead of build
+6. update test
+
+#Errors:
+2.1.5 :016 > jen.errors.full_messages
+
+#Create Routes
+You can edit routes.rb in config directly, or generate it
+ resrouces :recipes
+rake routes displays all the routes you have
+
+#Generate package
+rails g controller blahblah
+generates quite a bit of stuff
+
+#Gravatar - MD5
+2.1.5 :003 > Digest::MD5::hexdigest(email)
+
+
+#CSS
+Well - creates grey styling, looks really nice
+
+#Time ago
+<small><%= time_ago_in_words(recipe.created_at)%> ago</small>
+
+#Debug
+Use pry gem...
+binding.pry then in the server console, type params
+
+
+#Making form
+You can user (@recipe.new_recor? :) type of embedded code
+
+#Adding images
+1. Added the gems:
+#added image uploading functionality
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.8.0'
+
+2.Generate uploader
+rails generate uploader Picture
+If failed:
+bundle install --path vendor/cache
+
+3.run a migration to add pictures to the recipe
+4. to the model recipe a mount_uploader
+5. change the form to include picture files (SPACES are important to notice)
+    <%= form_for(@recipe, html: {multipart: true }) do |f| %>
+6. add f.file_field
+7. chage the params
+
+#Resizing the image
