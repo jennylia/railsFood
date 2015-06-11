@@ -1,26 +1,24 @@
-<%= render "shared/page_title", title: "All Recipes" %>
+<%= render "shared/page_title", title: "Chef: " + @chef.chefname %>
+<div class="row">
+  <div calss="col-md-4 col-md-offset-4 center">
+    <h3>Recipe</h3>
+    <%= will_paginate @recipes %>
+  </div>
+</div>
 
-<ul class="nav nav-tabs">
-  <li class="active">
-    <%= link_to "Recipes", recipes_path %>
-  </li>
-    <li>
-    <%= link_to "Chefs", chefs_path %>
-  </li>
-</ul>
-
-<%= will_paginate %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= gravatar_for @chef, size:200 %>
+    <h5>Profile for: <%= @chef.chefname %></h5>
+  </div>
+  
+  <!--<h5><%= link_to "Return to Recipes Listing", recipes_path, class:"btn btn-warning btn-small" %></h5>-->
+</div>
 
 <% @recipes.each do |recipe| %>
-  <div class="row">
-    <div class="col-md-2">
-      <section class="chef_info center">
-        <%= link_to (gravatar_for recipe.chef, {size:100, alt: recipe.chef.chefname + " gravatar"}), chef_path(recipe.chef) %>
-        <h5>Chef name: <%= recipe.chef.chefname %></h5>
-      </section>
-    </div>
-    
-    <div class="col-md-6 well">
+<div calss="row">
+
+ <div class="col-lg-6 well col-lg-offset-3 ">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= recipe.summary%></p>
       <p>
@@ -43,15 +41,9 @@
         <% end %>
       </div>
     </div>
-    
-    <div class="col-md-4">
-      <%= image_tag(recipe.picture.url, size: "250x150") if recipe.picture? %>
-    </div>
-    
+  </div>
+
+<%end%>
   </div>
   <hr/>
 
-<%end%>
-
-<%= will_paginate %>
-<hr/>

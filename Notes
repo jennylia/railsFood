@@ -97,3 +97,17 @@ gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
     @recipes = Recipe.paginate(page: params[:page], per_page: 4)
+
+#Adding password:
+1. In the chef's model
+  has_secure_password
+
+2. Add some password field to chef:
+http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
+a migration need to be created
+
+3. In the migration
+    add_column :chef, :password_digest, :string
+
+4. use railc to add password to a chef object, and use chef.authenticate('pw')
+
