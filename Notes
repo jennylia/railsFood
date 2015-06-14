@@ -1,6 +1,8 @@
 How to check the routes:
 rake routes
 
+Run:
+rails s -p $PORT -b $IP
 //Note auto prefixer might cause bugs
 
 #Styling
